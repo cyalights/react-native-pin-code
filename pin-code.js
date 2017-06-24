@@ -148,6 +148,10 @@ class CodePin extends Component {
 
     for (let index = 0; index < number; index++) {
       const id = index;
+
+      const color = this.props.editable ? pinStyle.color || codePinStyles.pin.color : 'gray';
+      const extraPinStyle = { color };
+
       pins.push(
         <TextInput
           key={id}
@@ -155,8 +159,9 @@ class CodePin extends Component {
           onChangeText={text => this.handleEdit(text, id)}
           onFocus={() => this.isFocus(id)}
           onKeyPress={event => this.handleKeyPress(event, id)}
+          editable={this.props.editable}
           value={this.state.code[id] ? this.state.code[id].toString() : ''}
-          style={[codePinStyles.pin, pinStyle]}
+          style={[codePinStyles.pin, pinStyle, extraPinStyle]}
           returnKeyType={'done'}
           autoCapitalize={'sentences'}
           autoCorrect={false}
@@ -206,6 +211,7 @@ CodePin.propTypes = {
   containerStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.number]),
   textStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.number]),
   errorStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.number]),
+  editable: PropTypes.bool,
   numeric: PropTypes.bool,
 };
 
@@ -218,6 +224,7 @@ CodePin.defaultProps = {
   containerStyle: {},
   textStyle: {},
   errorStyle: {},
+  editable: true,
   numeric: false,
 };
 

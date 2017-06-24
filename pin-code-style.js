@@ -18,6 +18,7 @@ export const codePinStyles = StyleSheet.create({
   },
   pin: {
     backgroundColor : '#F0F0F0',
+    color           : '#000000',
     textAlign       : 'center',
     flex            : 1,
     marginLeft      : 20,
@@ -32,16 +33,14 @@ export const codePinStyles = StyleSheet.create({
     shadowOpacity : 0.4
   },
   text: {
-    textAlign   : 'center', 
-    color       : 'gray', 
-    fontSize    : 20, 
+    textAlign   : 'center',
+    color       : 'gray',
+    fontSize    : 20,
     marginTop   : 30
   },
   error: {
-    textAlign   : 'center', 
-    color       : 'red', 
+    textAlign   : 'center',
+    color       : 'red',
     paddingTop  : 10
   }
 });
-
-
